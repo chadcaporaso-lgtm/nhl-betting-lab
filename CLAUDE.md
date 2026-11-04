@@ -2391,6 +2391,43 @@ Re-derive rather than trust if the data has moved.
   every run as `due_list_scorecard.md`. None of it is measured against
   prices; apart from the not-dressing removal it filters nothing. Same
   unchanged list as above.
+- **2026-11-04: big games on the Due List: 2+ goals, hat tricks, shutouts
+  (Cooper: "work shutouts/2 goal games/hat tricks into the due list for the
+  really elite goalscorers/goalies").** Three categories beside points,
+  goals and assists (`drought_rule.BIG_GAMES`): `two_goals` (goals over 1.5)
+  and `hat_trick` (over 2.5) for a skater with 40+ goals last season, at 20
+  and 30 games dressed without one; `shutout` for a goalie with 5+ shutouts
+  last season at 15 starts without one (a start is 2,400 seconds; a shutout
+  is no goal against over 59 minutes or more). The two goal categories take
+  the best staged goals over 1.5 / 2.5; a shutout is never priced (no book in
+  the feed quotes one), so it is graded for hits only. A shutout row skips
+  the lines check and is taken off when Daily Faceoff lists another goalie
+  as his club's starter. Settled in `drought_forward` (2+ goals and hat
+  tricks as goals over their line, `settle_shutout` void when he did not
+  start) and on the site (`DUE_LIST_MARKETS`). **The measurement
+  (`scripts/run_due_list_big_games.py`, Due List Tuning run 41759820070,
+  2024-25 and 2025-26, card window, best price): a drought makes none of
+  them likelier.** Cooper asked for "good parameters for each", so the floor
+  and bar are the least bad cell of that sweep that both seasons agree on
+  (picked after seeing it, so the figures flatter them): 2+ goals at 40+ /
+  20: hit 7.7% against 10.7% implied, **-23.6% over 391 (95% -47.9% to
+  +2.6%)**, -24.3% and -21.0% by season, no demonstrated edge; hat trick at
+  40+ / 30: **-58.6% over 1,269 (-81.1% to -33.2%)**, a demonstrated loss
+  at every floor and bar tried; shutouts at 5+ / 15: 6.7% of 210 starts
+  against 11.4% the season before (shorter or longer bars and other floors
+  are no better). First shipped at 40+/15, 40+/40 and 4+/15 (-27.8% over
+  576, -66.3% over 1,056, 4.8% of 475). Then, on Cooper's "test as many
+  seasons as you can", `--history 2009` read the NHL's free game logs for
+  every possible qualifier, 2010-11 to 2025-26 (rates only; no prices before
+  2024-25; Due List Tuning run 41765146539): at every floor and bar a
+  drought leaves the event as likely or less likely than for the same
+  players at any drought. Shipped settings against bar 0: 2+ goals 6.7% vs
+  7.7% (1,776 games), hat tricks 1.1% vs 1.3% (5,436), shutouts 7.0% vs
+  7.3% (1,850 starts); no other cell does better beyond noise, so the
+  settings stand. Every row carries its record and the
+  card prints the headline. Still an UNSTAKED list: the model, the edge bar,
+  the market list, the staking rule, the snapshot, the forward ledger and the
+  registered test are unchanged.
 
 - **2026-10-09: the card's player props are on the public site.** Cooper:
   "player props need to be posting to the website". The pages had rendered a
