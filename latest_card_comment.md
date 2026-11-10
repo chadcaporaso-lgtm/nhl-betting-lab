@@ -7,7 +7,7 @@ Selections are unchanged since the previous card; this comment is here because t
 
 # NHL gameday card
 
-- Generated: 2026-11-09T23:30:57+00:00
+- Generated: 2026-11-10T13:41:26+00:00
 - No card. 4 blocker(s); no selection, lean, pass, or stake was produced.
 - Included markets: **none**
 - Unit size: $25
@@ -42,38 +42,6 @@ Big games, measured on 2024-25 and 2025-26 (scripts/run_due_list_big_games.py), 
 _Nobody on tonight's slate qualifies._
 
 - No player logs are on disk, so no qualifier could be found.
-
-## Due List scorecard, Sun Nov 1 to Sat Nov 7
-
-**Last week**
-
-| | Listed | Hits | Units at 0.25u |
-|:--|--:|--:|--:|
-| points | 0 | n/a | n/a |
-| goals | 0 | n/a | n/a |
-| assists | 0 | n/a | n/a |
-| two_goals | 0 | n/a | n/a |
-| hat_trick | 0 | n/a | n/a |
-| shutout | 0 | n/a | n/a |
-| all | 0 | n/a | n/a |
-| model agreed | 0 | n/a | n/a |
-| model disagreed | 0 | n/a | n/a |
-
-**Season**
-
-| | Listed | Hits | Units at 0.25u |
-|:--|--:|--:|--:|
-| points | 0 | n/a | n/a |
-| goals | 0 | n/a | n/a |
-| assists | 0 | n/a | n/a |
-| two_goals | 0 | n/a | n/a |
-| hat_trick | 0 | n/a | n/a |
-| shutout | 0 | n/a | n/a |
-| all | 0 | n/a | n/a |
-| model agreed | 0 | n/a | n/a |
-| model disagreed | 0 | n/a | n/a |
-
-Hits count every graded entry; units count entries that had a price, at 0.25u as the site tracks the list. "Model agreed" means the card's own chance beat the listed price; entries listed before Oct 31 recorded no chance and sit in neither row. Nothing here is bet, and a week is far too few to call an edge either way.
 
 ## Excluded markets
 
@@ -119,6 +87,6 @@ What the evidence actually supports:
 - `data/outputs/props_calibration.md`
 - `data/outputs/what_we_can_claim.md`
 
-Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/42720815479
+Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/42826532639
 
 Recommendations only. No bet was placed, no policy was edited, and no market was allowlisted by this run.
