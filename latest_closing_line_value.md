@@ -6,7 +6,7 @@ backtest needs, which is the whole reason it exists — but it answers
 a *narrower* question. Beating the close is evidence of finding
 something; it is not profit, and this file never calls it profit.
 
-- Generated: 2026-11-10T22:31:48+00:00
+- Generated: 2026-11-11T13:31:53+00:00
 - Opinions considered: **0**; matched to a closing price: **0**; no closing price found: **0**.
 - Within that count, priced before face-off but no close near face-off: **0** — no capture was taken within 150 minutes of face-off (a round missed, or none is scheduled that close). An older price is an intraday price, not the market's last word, so they are not scored.
 

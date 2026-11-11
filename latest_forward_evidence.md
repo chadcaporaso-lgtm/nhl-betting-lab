@@ -2,7 +2,7 @@
 
 The opinion the live card actually held, written down before puck drop, settled against the boxscore after, never revised. This is the only possible price evidence for the regulation three-way, which has never been bought historically (it is per-event only and was never requested), and the accumulating out-of-sample test for everything else.
 
-- Generated: 2026-11-10T22:31:45+00:00
+- Generated: 2026-11-11T13:31:50+00:00
 - Ledger rows: 0
 
 ## Nothing settled yet
