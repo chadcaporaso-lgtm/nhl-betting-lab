@@ -7,7 +7,7 @@ Selections are unchanged since the previous card; this comment is here because t
 
 # NHL gameday card
 
-- Generated: 2026-11-15T22:31:59+00:00
+- Generated: 2026-11-16T13:32:07+00:00
 - No card. 4 blocker(s); no selection, lean, pass, or stake was produced.
 - Included markets: **none**
 - Unit size: $25
@@ -35,13 +35,49 @@ _PrizePicks' hits lines were not fetched this run._
 
 ## Due List
 
-Backtest of the shipped rule (either bar) on 2024-25 and 2025-26 bought prices, best price, card window, flat stake: points -1.6% over 311 wagers (95% -10.8% to +7.1%); goals +3.6% over 537 wagers (95% -9.3% to +19.2%); assists +10.5% over 184 wagers (95% -1.8% to +23.8%); no category's interval sits above zero.
+Backtest of the shipped rule (either bar) on 2024-25 and 2025-26 bought prices, best price, card window, flat stake: points -3.5% over 574 wagers (95% -10.8% to +3.8%); goals -6.9% over 1631 wagers (95% -15.3% to +2.1%); assists -5.6% over 988 wagers (95% -13.1% to +1.9%); no category's interval sits above zero.
 
-Big games, measured on 2024-25 and 2025-26 (scripts/run_due_list_big_games.py), with the floor and bar picked from that sweep as the least bad: no setting makes any of them likelier than the player's own rate. 2+ goals, 40+ goal scorers 20+ games without one: hit 7.7% against 10.7% implied, -23.6% over 391 (95% -47.9% to +2.6%; -24.3% in 2024-25, -21.0% in 2025-26), no demonstrated edge. Hat trick, 40+ at 30+: -58.6% over 1,269 (95% -81.1% to -33.2%), a demonstrated loss at every setting tried. Shutouts, 5+ last season at 15+ starts without one: 6.7% of 210 starts against 11.4% the season before; no book in this feed prices a shutout, so those rows are graded for hits only. Across 16 seasons of NHL game logs (2010-11 to 2025-26) a drought never made any of the three likelier than for the same players at any drought: 2+ goals 6.7% against 7.7% (1,776 games), hat tricks 1.1% against 1.3% (5,436), shutouts 7.0% against 7.3% (1,850 starts). Cooper picks from the list.
+Big games, measured on 2024-25 and 2025-26 (scripts/run_due_list_big_games.py): no setting makes any of them likelier than the player's own rate. Widened on 2026-11-10 for more picks (Cooper). 2+ goals, 35+ goal scorers 15+ games without one: hit 6.0% against 9.5% implied, -36.8% over 1,285 (95% -50.6% to -21.8%; -43.4% in 2024-25, -30.5% in 2025-26), a demonstrated loss. Hat trick, 40+ at 30+: -58.6% over 1,269 (95% -81.1% to -33.2%), a demonstrated loss at every setting tried. Shutouts, 4+ last season at 12+ starts without one: 5.2% of 656 starts at 10+ and 4.8% of 475 at 15+, against 9.7% to 9.8% the season before; no book in this feed prices a shutout, so those rows are graded for hits only. Across 16 seasons of NHL game logs (2010-11 to 2025-26, at the earlier, stricter settings) a drought never made any of the three likelier than for the same players at any drought. Cooper picks from the list.
 
 _Nobody on tonight's slate qualifies._
 
 - No player logs are on disk, so no qualifier could be found.
+
+## Due List scorecard, Sun Nov 8 to Sat Nov 14
+
+**Last week**
+
+| | Listed | Hits | Units (0.25u; +200 and longer smaller) |
+|:--|--:|--:|--:|
+| points | 0 | n/a | n/a |
+| goals | 0 | n/a | n/a |
+| assists | 0 | n/a | n/a |
+| two_goals | 0 | n/a | n/a |
+| hat_trick | 0 | n/a | n/a |
+| shutout | 0 | n/a | n/a |
+| all | 0 | n/a | n/a |
+| model agreed | 0 | n/a | n/a |
+| model disagreed | 0 | n/a | n/a |
+
+**Season**
+
+| | Listed | Hits | Units (0.25u; +200 and longer smaller) |
+|:--|--:|--:|--:|
+| points | 0 | n/a | n/a |
+| goals | 0 | n/a | n/a |
+| assists | 0 | n/a | n/a |
+| two_goals | 0 | n/a | n/a |
+| hat_trick | 0 | n/a | n/a |
+| shutout | 0 | n/a | n/a |
+| all | 0 | n/a | n/a |
+| model agreed | 0 | n/a | n/a |
+| model disagreed | 0 | n/a | n/a |
+
+Hits count every graded entry; units count entries that had a price, at 0.25u as the site tracks the list. "Model agreed" means the card's own chance beat the listed price; entries listed before Oct 31 recorded no chance and sit in neither row. Nothing here is bet, and a week is far too few to call an edge either way.
+
+## Layer scorecard
+
+_No layer scoring is on hand this run: the weekly Layer Scoring workflow has not produced a report this run could restore._
 
 ## Excluded markets
 
@@ -77,6 +113,7 @@ An excluded market is **not** a pass, an avoid, or a no-value call, and no price
 - Leans are recorded and not staked. The smallest edges are mostly estimation error, and in the EPL lab they lost.
 - One outcome is staked once. Where an alternate ladder prices the same outcome at several lines, the highest-edge rung is staked and the rest are recorded as leans naming it. This is not a per-game, per-slate or bankroll cap; there is none.
 - No edge here is a demonstrated edge. See `data/outputs/what_we_can_claim.md` for what the evidence actually supports.
+- No closing-line table has been written yet, so every stake is its tier's.
 
 
 ---
@@ -87,6 +124,6 @@ What the evidence actually supports:
 - `data/outputs/props_calibration.md`
 - `data/outputs/what_we_can_claim.md`
 
-Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/43754841441
+Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/43844372993
 
 Recommendations only. No bet was placed, no policy was edited, and no market was allowlisted by this run.
