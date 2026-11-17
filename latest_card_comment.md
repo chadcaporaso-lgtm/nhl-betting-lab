@@ -7,7 +7,7 @@ Selections are unchanged since the previous card; this comment is here because t
 
 # NHL gameday card
 
-- Generated: 2026-11-16T23:28:56+00:00
+- Generated: 2026-11-17T13:32:07+00:00
 - No card. 4 blocker(s); no selection, lean, pass, or stake was produced.
 - Included markets: **none**
 - Unit size: $25
@@ -43,42 +43,6 @@ _Nobody on tonight's slate qualifies._
 
 - No player logs are on disk, so no qualifier could be found.
 
-## Due List scorecard, Sun Nov 8 to Sat Nov 14
-
-**Last week**
-
-| | Listed | Hits | Units (0.25u; +200 and longer smaller) |
-|:--|--:|--:|--:|
-| points | 0 | n/a | n/a |
-| goals | 0 | n/a | n/a |
-| assists | 0 | n/a | n/a |
-| two_goals | 0 | n/a | n/a |
-| hat_trick | 0 | n/a | n/a |
-| shutout | 0 | n/a | n/a |
-| all | 0 | n/a | n/a |
-| model agreed | 0 | n/a | n/a |
-| model disagreed | 0 | n/a | n/a |
-
-**Season**
-
-| | Listed | Hits | Units (0.25u; +200 and longer smaller) |
-|:--|--:|--:|--:|
-| points | 0 | n/a | n/a |
-| goals | 0 | n/a | n/a |
-| assists | 0 | n/a | n/a |
-| two_goals | 0 | n/a | n/a |
-| hat_trick | 0 | n/a | n/a |
-| shutout | 0 | n/a | n/a |
-| all | 0 | n/a | n/a |
-| model agreed | 0 | n/a | n/a |
-| model disagreed | 0 | n/a | n/a |
-
-Hits count every graded entry; units count entries that had a price, at 0.25u as the site tracks the list. "Model agreed" means the card's own chance beat the listed price; entries listed before Oct 31 recorded no chance and sit in neither row. Nothing here is bet, and a week is far too few to call an edge either way.
-
-## Layer scorecard
-
-_No layer scoring is on hand this run: the weekly Layer Scoring workflow has not produced a report this run could restore._
-
 ## Excluded markets
 
 - `assists`: The provider returned no rows for this market. That is an absence, not a price of zero and not a no-value call. Check per-bookmaker coverage including alternate lines before concluding it is not offered.
@@ -113,7 +77,7 @@ An excluded market is **not** a pass, an avoid, or a no-value call, and no price
 - Leans are recorded and not staked. The smallest edges are mostly estimation error, and in the EPL lab they lost.
 - One outcome is staked once. Where an alternate ladder prices the same outcome at several lines, the highest-edge rung is staked and the rest are recorded as leans naming it. This is not a per-game, per-slate or bankroll cap; there is none.
 - No edge here is a demonstrated edge. See `data/outputs/what_we_can_claim.md` for what the evidence actually supports.
-- Stakes are sized by each market's closing-line value (Cooper, 2026-11-10): x1.5 where the bets' 95% game-clustered CLV interval sits above zero, x0.5 where it spans zero, x0.25 below it, unchanged under 200 bets or 30 games. Table of 2026-11-16T22:26: . Beating the close is not a demonstrated edge.
+- Stakes are sized by each market's closing-line value (Cooper, 2026-11-10): x1.5 where the bets' 95% game-clustered CLV interval sits above zero, x0.5 where it spans zero, x0.25 below it, unchanged under 200 bets or 30 games. Table of 2026-11-16T23:28: . Beating the close is not a demonstrated edge.
 
 
 ---
@@ -124,6 +88,6 @@ What the evidence actually supports:
 - `data/outputs/props_calibration.md`
 - `data/outputs/what_we_can_claim.md`
 
-Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/43979346952
+Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/44068855013
 
 Recommendations only. No bet was placed, no policy was edited, and no market was allowlisted by this run.
