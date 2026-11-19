@@ -32,8 +32,8 @@ def test_drought_carries_across_the_season_boundary_and_uses_last_seasons_record
 
 
 def test_qualifying_bars_are_the_ones_cooper_set():
-    assert drb.THRESHOLDS == {"points": 60, "goals": 20, "assists": 55}, "70 / 25 / 60 until 2026-11-10; assists 40 until 2026-11-17"
-    assert drb.TIERS == {"points": ((100, 2), (85, 3), (70, 4), (60, 5)), "goals": ((40, 4), (25, 8), (20, 10)),
+    assert drb.THRESHOLDS == {"points": 60, "goals": 25, "assists": 55}, "goals 20 from 2026-11-10 to 11-19; assists 40 until 2026-11-17"
+    assert drb.TIERS == {"points": ((100, 2), (85, 3), (70, 4), (60, 5)), "goals": ((40, 4), (25, 8)),
                          "assists": ((55, 3),)}
     assert drb.SURPRISE_MARKETS == ("points", "assists"), "goals left the surprise bar on 2026-10-10"
     assert drb.SURPRISE_LEVEL == 0.05
@@ -121,7 +121,7 @@ def test_the_json_keeps_its_keys_and_names_the_tiers_the_level_and_the_rule():
 
     assert set(payload) == {"generated_at", "thresholds", "min_drought", "tiers", "surprise_level", "rule",
                             "accounting", "buckets", "goal_sweep"}
-    assert payload["tiers"] == {"points": [[100, 2], [85, 3], [70, 4], [60, 5]], "goals": [[40, 4], [25, 8], [20, 10]],
+    assert payload["tiers"] == {"points": [[100, 2], [85, 3], [70, 4], [60, 5]], "goals": [[40, 4], [25, 8]],
                                 "assists": [[55, 3]]}
     assert payload["surprise_level"] == 0.05 and payload["min_drought"] == 5
     assert "either" in payload["rule"] and "(1 - p)^n <= 0.05" in payload["rule"] and "100+ -> 2" in payload["rule"]
