@@ -62,6 +62,49 @@ def _get(url: str, dest: Path, *, required: bool, ttl_hours: float | None) -> bo
     return dest.exists()
 
 
+def stats_file_complete(path: Path) -> bool:
+    """Whether a stats-API summary on disk holds every row it says it has.
+
+    The stats API sometimes answers 200 with a short or empty ``data`` list
+    (its ``total`` still names the full count). A closed season's file is kept
+    for good, so a short answer would starve every prior built on it; the
+    season sim failed on 2026-11-19/20 with "no role prior could be fitted"
+    when a short 2025-26 skater list was read as the season.
+    """
+    try:
+        body = json.loads(Path(path).read_text())
+    except (OSError, ValueError):
+        return False
+    if not isinstance(body, dict):
+        return False
+    data = body.get("data")
+    if not isinstance(data, list) or not data:
+        return False
+    total = body.get("total")
+    return not isinstance(total, int) or len(data) >= total
+
+
+def _get_stats(url: str, dest: Path, *, closed: bool, ttl_hours: float | None,
+               get=None) -> bool:
+    """``_get`` for a stats-API summary, refusing a short answer: an
+    incomplete file is deleted and asked for again. A closed season that never
+    answers in full fails the build here, naming the file, rather than as a
+    model error later; the current season keeps whatever it got."""
+    get = get or _get
+    for attempt in range(ATTEMPTS):
+        ok = get(url, dest, required=closed, ttl_hours=ttl_hours)
+        if not ok or not dest.exists():
+            return False
+        if stats_file_complete(dest):
+            return True
+        if attempt < ATTEMPTS - 1:
+            dest.unlink()
+            time.sleep(2 * (attempt + 1))
+    if closed:
+        raise FetchError(f"{url}: the stats API answered with fewer rows than its total, {ATTEMPTS} times")
+    return dest.exists()
+
+
 def _stats_url(kind: str, season: str, sort: str) -> str:
     return (
         f"{STATS}/{kind}/summary?isAggregate=false&isGame=false&limit=-1&sort={sort}"
@@ -111,8 +154,8 @@ def fetch_bundle(cache: Path, *, season: str = SEASON, today: date | None = None
     skaters, goalies = {}, {}
     for s in (season, *PRIOR_SEASONS):
         closed = s != season
-        _get(_stats_url("skater", s, "points"), cache / f"skaters_{s}.json", required=closed, ttl_hours=None if closed else ttl)
-        _get(_stats_url("goalie", s, "wins"), cache / f"goalies_{s}.json", required=closed, ttl_hours=None if closed else ttl)
+        _get_stats(_stats_url("skater", s, "points"), cache / f"skaters_{s}.json", closed=closed, ttl_hours=None if closed else ttl)
+        _get_stats(_stats_url("goalie", s, "wins"), cache / f"goalies_{s}.json", closed=closed, ttl_hours=None if closed else ttl)
         for kind, store in (("skaters", skaters), ("goalies", goalies)):
             path = cache / f"{kind}_{s}.json"
             store[s] = json.loads(path.read_text()).get("data", []) if path.exists() else []
