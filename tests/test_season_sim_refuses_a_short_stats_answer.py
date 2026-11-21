@@ -38,7 +38,8 @@ def test_an_empty_answer_for_a_closed_season_fails_by_name(tmp_path, monkeypatch
     monkeypatch.setattr(fetch.time, "sleep", lambda s: None)
     get, calls = _writer([{"data": [], "total": 900}])
     with pytest.raises(fetch.FetchError):
-        fetch._get_stats("u", tmp_path / "s.json", closed=True, ttl_hours=None, get=get)
+        fetch._get_stats("u", tmp_path / "s.json", closed=True, ttl_hours=None, get=get,
+                         pages=lambda url: ([], 900))
     assert len(calls) == fetch.ATTEMPTS
 
 
@@ -56,3 +57,20 @@ def test_a_complete_file_is_complete(tmp_path):
     assert fetch.stats_file_complete(p)
     p.write_text("not json")
     assert not fetch.stats_file_complete(p)
+
+
+def test_repeated_short_answers_are_read_page_by_page(tmp_path, monkeypatch):
+    monkeypatch.setattr(fetch.time, "sleep", lambda s: None)
+    get, calls = _writer([{"data": [{"id": 1}], "total": 3}])
+    dest = tmp_path / "skaters_20252026.json"
+    asked = []
+
+    def pages(url):
+        asked.append(url)
+        return [{"id": i} for i in range(3)], 3
+
+    assert fetch._get_stats("u", dest, closed=True, ttl_hours=None, get=get, pages=pages)
+    assert len(calls) == fetch.ATTEMPTS and asked == ["u"]
+    assert fetch.stats_file_complete(dest)
+    assert len(json.loads(dest.read_text())["data"]) == 3
+
