@@ -8,6 +8,7 @@ and for closed seasons for good.
 from __future__ import annotations
 
 import json
+import re
 import time
 from datetime import date, datetime, timezone
 from pathlib import Path
@@ -84,13 +85,49 @@ def stats_file_complete(path: Path) -> bool:
     return not isinstance(total, int) or len(data) >= total
 
 
+STATS_PAGE_SIZE = 100
+
+
+def _page_stats(url: str) -> tuple[list[dict], int | None]:  # pragma: no cover - network
+    """Read a stats-API summary page by page, in ``playerId`` order.
+
+    From 2026-11-20 the API's ``limit=-1`` answer stopped holding every row
+    its ``total`` names for 2025-26 skaters, three times running, so the
+    single request cannot be trusted. Pages of 100 in a unique order are what
+    the lab's own registry fetch reads (``nhl_api.REGISTRY_PAGE_SIZE``).
+    """
+    base = url.replace("limit=-1", f"limit={STATS_PAGE_SIZE}")
+    base = re.sub(r"sort=[^&]*", "sort=playerId", base)
+    rows: list[dict] = []
+    total: int | None = None
+    start = 0
+    while start <= 5000:  # a season has about 1,000 players; a runaway guard
+        resp = requests.get(f"{base}&start={start}", headers={"User-Agent": USER_AGENT}, timeout=TIMEOUT)
+        resp.raise_for_status()
+        body = resp.json()
+        page = body.get("data") if isinstance(body, dict) else None
+        if not isinstance(page, list):
+            raise FetchError(f"{base}: page from row {start} held no list")
+        if isinstance(body.get("total"), int):
+            total = max(total or 0, body["total"])
+        rows.extend(page)
+        if len(page) < STATS_PAGE_SIZE:
+            break
+        start += STATS_PAGE_SIZE
+        time.sleep(0.5)
+    return rows, total
+
+
 def _get_stats(url: str, dest: Path, *, closed: bool, ttl_hours: float | None,
-               get=None) -> bool:
+               get=None, pages=None) -> bool:
     """``_get`` for a stats-API summary, refusing a short answer: an
-    incomplete file is deleted and asked for again. A closed season that never
-    answers in full fails the build here, naming the file, rather than as a
-    model error later; the current season keeps whatever it got."""
+    incomplete file is deleted and asked for again, and after ``ATTEMPTS``
+    short answers the summary is read page by page (``_page_stats``) and
+    written in the same shape. A closed season that still never answers in
+    full fails the build here, naming the file, rather than as a model error
+    later; the current season keeps whatever it got."""
     get = get or _get
+    pages = pages or _page_stats
     for attempt in range(ATTEMPTS):
         ok = get(url, dest, required=closed, ttl_hours=ttl_hours)
         if not ok or not dest.exists():
@@ -100,8 +137,17 @@ def _get_stats(url: str, dest: Path, *, closed: bool, ttl_hours: float | None,
         if attempt < ATTEMPTS - 1:
             dest.unlink()
             time.sleep(2 * (attempt + 1))
+    try:
+        rows, total = pages(url)
+    except (requests.RequestException, ValueError, FetchError) as exc:
+        if closed:
+            raise FetchError(f"{url}: short answers {ATTEMPTS} times, and paging failed: {exc}") from exc
+        return dest.exists()
+    if rows and (total is None or len(rows) >= total):
+        dest.write_text(json.dumps({"data": rows, "total": total if total is not None else len(rows)}))
+        return True
     if closed:
-        raise FetchError(f"{url}: the stats API answered with fewer rows than its total, {ATTEMPTS} times")
+        raise FetchError(f"{url}: the stats API answered with fewer rows than its total, {ATTEMPTS} times and paged")
     return dest.exists()
 
 
