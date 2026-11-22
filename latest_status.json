@@ -1,9 +1,9 @@
 {
-  "date": "2026-11-21",
-  "card_day": "2026-11-21",
+  "date": "2026-11-22",
+  "card_day": "2026-11-22",
   "decision": "post_failed",
   "degraded": "true",
   "empty_slate": "false",
-  "run_url": "https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/44947233507",
+  "run_url": "https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/45010027484",
   "ref": "refs/heads/main"
 }

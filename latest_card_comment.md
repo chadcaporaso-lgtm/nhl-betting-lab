@@ -7,7 +7,7 @@ Selections are unchanged since the previous card; this comment is here because t
 
 # NHL gameday card
 
-- Generated: 2026-11-21T22:52:12+00:00
+- Generated: 2026-11-22T13:32:15+00:00
 - No card. 4 blocker(s); no selection, lean, pass, or stake was produced.
 - Included markets: **none**
 - Unit size: $25
@@ -35,9 +35,17 @@ _PrizePicks' hits lines were not fetched this run._
 
 ## Due List
 
-Backtest of the shipped rule (either bar) on 2024-25 and 2025-26 bought prices, best price, card window, flat stake: points -3.5% over 574 wagers (95% -10.8% to +3.8%); goals -6.9% over 1631 wagers (95% -15.3% to +2.1%); assists +9.2% over 301 wagers (95% -2.0% to +19.9%); no category's interval sits above zero.
+Backtest of the shipped rule (either bar) on 2024-25 and 2025-26 bought prices, best price, card window, flat stake: points -3.5% over 574 wagers (95% -10.8% to +3.8%); goals +1.3% over 972 wagers (95% -8.6% to +11.5%); assists +9.2% over 301 wagers (95% -2.0% to +19.9%); no category's interval sits above zero.
 
 Big games, re-measured 2026-11-17 on 2024-25 and 2025-26 (scripts/run_due_list_big_games.py, Due List Tuning run 44104405522; each setting is the cell both seasons agreed on, picked after seeing it, so the figures flatter it). 2+ goals, 40+ goal scorers 25+ games without one: hit 7.9% against 10.6% implied, -23.0% over 253 (95% -55.4% to +12.8%; -31.3% in 2024-25, +10.1% in 2025-26), no demonstrated edge. Hat trick, 40+ at 50+: -63.1% over 853 (95% -87.8% to -33.9%), a demonstrated loss at every setting tried. Both bars were lengthened on Cooper's word; a longer drought did not make either likelier. 2+ points, new: 100+ point scorers 3+ games without one, -0.8% over 174 (95% -19.7% to +17.9%; -1.6% and +0.6% by season), no demonstrated edge. Shutouts, 4+ last season at 12+ starts without one: 5.2% of 656 starts at 10+ against 9.7% to 9.8% the season before; no book in this feed prices a shutout, so those rows are graded for hits only. A drought made none of these likelier than the player's own rate. Cooper picks from the list.
+
+_Nobody on tonight's slate qualifies._
+
+- No player logs are on disk, so no qualifier could be found.
+
+## Hot List
+
+Hot List: 80+ points last season and 8+ points in his last 5; 60+ assists and 6+ assists in his last 5; 40+ goals and a goal in 2+ straight games. On two past seasons at the best price: points +0.7% over 360, assists -0.6% over 382, goals -0.9% over 264; this season so far +1.2% over 141, +11.4% over 101 and -13.6% over 38. Every range spans zero: no demonstrated edge. Books already price a hot streak.
 
 _Nobody on tonight's slate qualifies._
 
@@ -77,7 +85,7 @@ An excluded market is **not** a pass, an avoid, or a no-value call, and no price
 - Leans are recorded and not staked. The smallest edges are mostly estimation error, and in the EPL lab they lost.
 - One outcome is staked once. Where an alternate ladder prices the same outcome at several lines, the highest-edge rung is staked and the rest are recorded as leans naming it. This is not a per-game, per-slate or bankroll cap; there is none.
 - No edge here is a demonstrated edge. See `data/outputs/what_we_can_claim.md` for what the evidence actually supports.
-- Stakes are sized by each market's closing-line value (Cooper, 2026-11-10): x1.5 where the bets' 95% game-clustered CLV interval sits above zero, x0.5 where it spans zero, x0.25 below it, unchanged under 200 bets or 30 games. Table of 2026-11-21T20:52: . Beating the close is not a demonstrated edge.
+- Stakes are sized by each market's closing-line value (Cooper, 2026-11-10): x1.5 where the bets' 95% game-clustered CLV interval sits above zero, x0.5 where it spans zero, x0.25 below it, unchanged under 200 bets or 30 games. Table of 2026-11-21T22:52: . Beating the close is not a demonstrated edge.
 
 
 ---
@@ -88,6 +96,6 @@ What the evidence actually supports:
 - `data/outputs/props_calibration.md`
 - `data/outputs/what_we_can_claim.md`
 
-Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/44947233507
+Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/45010027484
 
 Recommendations only. No bet was placed, no policy was edited, and no market was allowlisted by this run.
