@@ -7,7 +7,7 @@ Selections are unchanged since the previous card; this comment is here because t
 
 # NHL gameday card
 
-- Generated: 2026-11-22T22:31:58+00:00
+- Generated: 2026-11-22T22:51:58+00:00
 - No card. 4 blocker(s); no selection, lean, pass, or stake was produced.
 - Included markets: **none**
 - Unit size: $25
@@ -96,6 +96,6 @@ What the evidence actually supports:
 - `data/outputs/props_calibration.md`
 - `data/outputs/what_we_can_claim.md`
 
-Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/45056005703
+Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/45068312036
 
 Recommendations only. No bet was placed, no policy was edited, and no market was allowlisted by this run.
