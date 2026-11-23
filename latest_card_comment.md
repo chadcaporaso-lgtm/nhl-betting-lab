@@ -7,7 +7,7 @@ Selections are unchanged since the previous card; this comment is here because t
 
 # NHL gameday card
 
-- Generated: 2026-11-22T22:51:58+00:00
+- Generated: 2026-11-23T13:32:05+00:00
 - No card. 4 blocker(s); no selection, lean, pass, or stake was produced.
 - Included markets: **none**
 - Unit size: $25
@@ -43,6 +43,40 @@ _Nobody on tonight's slate qualifies._
 
 - No player logs are on disk, so no qualifier could be found.
 
+## Due List scorecard, Sun Nov 15 to Sat Nov 21
+
+**Last week**
+
+| | Listed | Hits | Units (1u; +200 and longer smaller) |
+|:--|--:|--:|--:|
+| points | 0 | n/a | n/a |
+| goals | 0 | n/a | n/a |
+| assists | 0 | n/a | n/a |
+| two_goals | 0 | n/a | n/a |
+| hat_trick | 0 | n/a | n/a |
+| two_points | 0 | n/a | n/a |
+| shutout | 0 | n/a | n/a |
+| all | 0 | n/a | n/a |
+| model agreed | 0 | n/a | n/a |
+| model disagreed | 0 | n/a | n/a |
+
+**Season**
+
+| | Listed | Hits | Units (1u; +200 and longer smaller) |
+|:--|--:|--:|--:|
+| points | 0 | n/a | n/a |
+| goals | 0 | n/a | n/a |
+| assists | 0 | n/a | n/a |
+| two_goals | 0 | n/a | n/a |
+| hat_trick | 0 | n/a | n/a |
+| two_points | 0 | n/a | n/a |
+| shutout | 0 | n/a | n/a |
+| all | 0 | n/a | n/a |
+| model agreed | 0 | n/a | n/a |
+| model disagreed | 0 | n/a | n/a |
+
+Hits count every graded entry; units count entries that had a price, at 1u as the site tracks the list. "Model agreed" means the card's own chance beat the listed price; entries listed before Oct 31 recorded no chance and sit in neither row. Nothing here is bet, and a week is far too few to call an edge either way.
+
 ## Hot List
 
 Hot List: 80+ points last season and 8+ points in his last 5; 60+ assists and 6+ assists in his last 5; 40+ goals and a goal in 2+ straight games. On two past seasons at the best price: points +0.7% over 360, assists -0.6% over 382, goals -0.9% over 264; this season so far +1.2% over 141, +11.4% over 101 and -13.6% over 38. Every range spans zero: no demonstrated edge. Books already price a hot streak.
@@ -50,6 +84,10 @@ Hot List: 80+ points last season and 8+ points in his last 5; 60+ assists and 6+
 _Nobody on tonight's slate qualifies._
 
 - No player logs are on disk, so no qualifier could be found.
+
+## Layer scorecard
+
+_No layer scoring is on hand this run: the weekly Layer Scoring workflow has not produced a report this run could restore._
 
 ## Excluded markets
 
@@ -85,7 +123,7 @@ An excluded market is **not** a pass, an avoid, or a no-value call, and no price
 - Leans are recorded and not staked. The smallest edges are mostly estimation error, and in the EPL lab they lost.
 - One outcome is staked once. Where an alternate ladder prices the same outcome at several lines, the highest-edge rung is staked and the rest are recorded as leans naming it. This is not a per-game, per-slate or bankroll cap; there is none.
 - No edge here is a demonstrated edge. See `data/outputs/what_we_can_claim.md` for what the evidence actually supports.
-- Stakes are sized by each market's closing-line value (Cooper, 2026-11-10): x1.5 where the bets' 95% game-clustered CLV interval sits above zero, x0.5 where it spans zero, x0.25 below it, unchanged under 200 bets or 30 games. Table of 2026-11-22T20:52: . Beating the close is not a demonstrated edge.
+- Stakes are sized by each market's closing-line value (Cooper, 2026-11-10): x1.5 where the bets' 95% game-clustered CLV interval sits above zero, x0.5 where it spans zero, x0.25 below it, unchanged under 200 bets or 30 games. Table of 2026-11-22T22:52: . Beating the close is not a demonstrated edge.
 
 
 ---
@@ -96,6 +134,6 @@ What the evidence actually supports:
 - `data/outputs/props_calibration.md`
 - `data/outputs/what_we_can_claim.md`
 
-Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/45068312036
+Run: https://github.com/chadcaporaso-lgtm/nhl-betting-lab/actions/runs/45160560434
 
 Recommendations only. No bet was placed, no policy was edited, and no market was allowlisted by this run.
